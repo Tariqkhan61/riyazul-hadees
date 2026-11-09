@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ریاض الحدیث | Muhammad Tariq Mahboob</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===================== VARIABLES ===================== */
+:root {
+  --navy: #0F1E3D;
+  --navy-alt: #123B3A;
+  --gold: #C9A24B;
+  --gold-light: #E6C97A;
+  --ivory: #F7F3EC;
+  --white: #FFFFFF;
+  --charcoal: #1B1B1B;
+  --muted: #5A6270;
+  --sand: #E4DCCB;
+  --shadow: 0 8px 24px rgba(15,30,61,0.06);
+  --shadow-lg: 0 16px 40px rgba(15,30,61,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-family: 'Noto Nastaliq Urdu', serif;
+  line-height: 2.1;
+  direction: rtl;
+  font-size: 17px;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(201,162,75,0.04) 0 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, rgba(15,30,61,0.03) 0 2px, transparent 2px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===================== TYPOGRAPHY ===================== */
+h1, h2, h3, h4 { color: var(--navy); font-weight: 700; line-height: 1.6; }
+h1 { font-size: 2.6rem; }
+h2 { font-size: 2rem; margin-bottom: 8px; }
+h3 { font-size: 1.4rem; }
+
+h2.section-title { text-align: center; margin-bottom: 48px; position: relative; }
+h2.section-title::after {
+  content: ""; display: block; width: 70px; height: 2px;
+  background: var(--gold); margin: 14px auto 0;
+}
+h2.section-title span {
+  display: block; font-family: 'Inter', sans-serif; font-size: 0.85rem;
+  color: var(--muted); letter-spacing: 3px; text-transform: uppercase;
+  margin-top: 8px; font-weight: 500;
+}
+p { margin-bottom: 14px; }
+
+/* ===================== LAYOUT ===================== */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+section { padding: 80px 0; }
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(15,30,61,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(201,162,75,0.3);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 16px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.logo {
+  color: var(--gold-light); font-size: 1.25rem; font-weight: 700;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.logo-mark {
+  width: 34px; height: 34px;
+  border: 1.5px solid var(--gold); border-radius: 8px;
+  display: grid; place-items: center; color: var(--gold); font-size: 1rem;
+}
+.logo-by {
+  font-size: 0.72rem;
+  color: rgba(230,201,122,0.75);
+  border-right: 1px solid rgba(201,162,75,0.4);
+  padding-right: 12px; margin-right: 2px;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+}
+.nav-links { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav-links a {
+  color: var(--ivory); text-decoration: none; font-size: 0.95rem;
+  transition: color .2s; opacity: 0.85;
+}
+.nav-links a:hover { color: var(--gold-light); opacity: 1; }
+
+/* ===================== HERO ===================== */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-alt) 100%);
+  color: var(--ivory);
+  padding: 100px 24px 90px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "☪";
+  position: absolute; font-size: 340px;
+  color: rgba(201,162,75,0.06);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; }
+.hero-badge {
+  display: inline-block;
+  border: 1px solid var(--gold); color: var(--gold-light);
+  padding: 6px 20px; border-radius: 50px;
+  font-size: 0.85rem; letter-spacing: 2px;
+  margin-bottom: 24px; font-family: 'Inter', sans-serif;
+}
+.hero h1 { color: var(--ivory); font-size: 3rem; margin-bottom: 20px; }
+.hero h1 em { color: var(--gold-light); font-style: normal; }
+.hero p {
+  font-size: 1.12rem; opacity: 0.9;
+  max-width: 640px; margin: 0 auto 30px;
+}
+.hero-divider {
+  width: 80px; height: 2px;
+  background: var(--gold); margin: 0 auto 26px;
+}
+
+/* ===================== HERO AUTHOR (Aapka naam) ===================== */
+.hero-author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto 34px;
+  padding: 20px 32px;
+  border: 1px solid rgba(201,162,75,0.35);
+  border-radius: 14px;
+  background: rgba(201,162,75,0.06);
+  max-width: 480px;
+  position: relative;
+}
+.hero-author::before,
+.hero-author::after {
+  content: "";
+  position: absolute;
+  width: 22px; height: 22px;
+  border: 2px solid var(--gold);
+}
+.hero-author::before {
+  top: -1px; right: -1px;
+  border-left: none; border-bottom: none;
+  border-radius: 0 14px 0 0;
+}
+.hero-author::after {
+  bottom: -1px; left: -1px;
+  border-right: none; border-top: none;
+  border-radius: 0 0 0 14px;
+}
+.author-label {
+  font-size: 0.9rem;
+  color: rgba(247,243,236,0.75);
+  letter-spacing: 1px;
+}
+.author-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+  text-shadow: 0 2px 16px rgba(201,162,75,0.35);
+  direction: ltr;
+}
+.author-name-urdu {
+  font-size: 1rem;
+  color: rgba(230,201,122,0.9);
+  margin-top: 2px;
+}
+
+/* ===================== BUTTONS ===================== */
+.btn {
+  display: inline-block;
+  padding: 13px 34px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: all .25s;
+  cursor: pointer;
+  border: none;
+}
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: var(--ivory);
+  border: 1.5px solid var(--gold); margin-right: 12px;
+}
+.btn-outline:hover { background: var(--gold); color: var(--navy); }
+
+/* ===================== CARDS (GREEN + GOLD) ===================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.card {
+  background: linear-gradient(145deg, #123B3A 0%, #0E2F2E 100%);
+  border: 1.5px solid rgba(201,162,75,0.55);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(15,30,61,0.15);
+  padding: 28px 24px;
+  transition: all .3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 40px; height: 40px;
+  border-top: 2px solid var(--gold);
+  border-right: 2px solid var(--gold);
+  border-radius: 0 12px 0 0;
+  opacity: 0.6;
+  transition: opacity .3s;
+}
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(15,30,61,0.28);
+  background: linear-gradient(145deg, #154744 0%, #103534 100%);
+}
+.card:hover::before { opacity: 1; }
+
+.card-num {
+  display: inline-grid;
+  place-items: center;
+  width: 46px; height: 46px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold-light);
+  background: rgba(201,162,75,0.10);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.card h3 {
+  margin-bottom: 8px;
+  font-size: 1.35rem;
+  color: var(--gold-light);
+}
+.card .arabic {
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 10px;
+  display: block;
+  opacity: 0.95;
+}
+.card p {
+  color: #E8E0D0;
+  font-size: 0.98rem;
+  margin: 0;
+  line-height: 2;
+}
+.card .example {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(201,162,75,0.35);
+  font-size: 0.9rem;
+  color: #F0E9DB;
+}
+.card .example strong { color: var(--gold-light); }
+
+/* ===================== DARK SECTION ===================== */
+.dark-section {
+  background: linear-gradient(135deg, var(--navy) 0%, #0a1428 100%);
+  color: var(--ivory);
+  position: relative;
+  overflow: hidden;
+}
+.dark-section::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(30deg, rgba(201,162,75,0.04) 12%, transparent 12.5%, transparent 87%, rgba(201,162,75,0.04) 87.5%);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+.dark-section h2.section-title { color: var(--ivory); }
+.dark-section h2.section-title::after { background: var(--gold); }
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  position: relative; z-index: 1;
+}
+.book-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,162,75,0.3);
+  border-radius: 12px;
+  padding: 24px 18px;
+  text-align: center;
+  transition: all .3s;
+}
+.book-card:hover {
+  border-color: var(--gold);
+  background: rgba(201,162,75,0.08);
+  transform: translateY(-4px);
+}
+.book-card .book-arabic {
+  font-size: 1.6rem; color: var(--gold-light);
+  margin-bottom: 10px; display: block;
+}
+.book-card h4 { color: var(--ivory); font-size: 1.1rem; margin-bottom: 6px; }
+.book-card p { color: rgba(247,243,236,0.65); font-size: 0.88rem; margin: 0; }
+
+/* ===================== QUIZ (GREEN + GOLD) ===================== */
+.quiz-box {
+  background: linear-gradient(145deg, #123B3A 0%, #0E2F2E 100%);
+  border: 1.5px solid rgba(201,162,75,0.55);
+  border-radius: 16px;
+  padding: 36px;
+  box-shadow: 0 16px 40px rgba(15,30,61,0.15);
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+.quiz-q {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-bottom: 24px;
+  line-height: 2;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed rgba(201,162,75,0.3);
+}
+.quiz-options {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.quiz-opt {
+  padding: 14px 20px;
+  border: 1px solid rgba(201,162,75,0.4);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: right;
+  background: var(--ivory);
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 1rem;
+  color: var(--charcoal);
+  transition: all .2s;
+}
+.quiz-opt:hover {
+  border-color: var(--gold);
+  background: #FFFFFF;
+  transform: translateX(-4px);
+}
+.quiz-opt.correct {
+  border-color: #2e7d4f;
+  background: #eaf7ef;
+  color: #1e5a37;
+  font-weight: 700;
+}
+.quiz-opt.wrong {
+  border-color: #b23b3b;
+  background: #fbeaea;
+  color: #8a1f1f;
+}
+.quiz-feedback {
+  text-align: center;
+  font-weight: 700;
+  min-height: 28px;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+.quiz-next {
+  display: none;
+  margin: 0 auto;
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  background: var(--charcoal);
+  color: rgba(247,243,236,0.7);
+  text-align: center;
+  padding: 44px 24px 40px;
+  font-size: 0.9rem;
+}
+footer .foot-logo { color: var(--gold-light); font-size: 1.2rem; margin-bottom: 8px; font-weight: 700; }
+footer .foot-div { width: 60px; height: 1px; background: rgba(201,162,75,0.4); margin: 14px auto; }
+.footer-credit {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: var(--gold-light);
+  margin-top: 6px;
+  letter-spacing: 1px;
+}
+.footer-credit .label {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 0.95rem;
+  color: rgba(247,243,236,0.65);
+  margin-left: 6px;
+  letter-spacing: 0;
+}
+.footer-copy { margin-top: 12px; opacity: 0.55; font-size: 0.82rem; }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+  body { font-size: 16px; }
+  h1, .hero h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  section { padding: 56px 0; }
+  .hero { padding: 72px 20px 56px; }
+  .nav-links { gap: 14px; font-size: 0.85rem; }
+  .btn-outline { margin-right: 0; margin-top: 10px; }
+  .quiz-box { padding: 24px; }
+  .author-name { font-size: 1.7rem; }
+  .hero-author { padding: 18px 20px; }
+  .logo-by { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="logo">
+      <span class="logo-mark">ح</span>
+      ریاض الحدیث
+      <span class="logo-by">M. TARIQ MAHBOOB</span>
+    </div>
+    <div class="nav-links">
+      <a href="#aqsam">اقسام</a>
+      <a href="#riwayat">روایت</a>
+      <a href="#sanad">سند</a>
+      <a href="#darja">درجہ بندی</a>
+      <a href="#kutub">کتب</a>
+      <a href="#quiz">آزمائش</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">FEHMUL HADEES</div>
+    <h1>حدیث کی <em>اقسام</em><br>آسان اردو میں</h1>
+    <div class="hero-divider"></div>
+    <p>نبی کریم ﷺ کے فرمان، آپ کے افعال اور آپ کی سیرت کو حدیث کہا جاتا ہے۔ اس ویب سائٹ پر حدیث کی تمام اقسام کو نہایت آسان اور عام فہم انداز میں سمجھایا گیا ہے۔</p>
+
+    <!-- ⭐ AAPKA NAAM — bara, premium -->
+    <div class="hero-author">
+      <span class="author-label">پیشکش از</span>
+      <span class="author-name">Muhammad Tariq Mahboob</span>
+      <span class="author-name-urdu">محمد طارق محبوب</span>
+    </div>
+
+    <a href="#aqsam" class="btn btn-gold">سیکھنا شروع کریں</a>
+    <a href="#quiz" class="btn btn-outline">آزمائش دیں</a>
+  </div>
+</header>
+
+<!-- ===================== AQSAM ===================== -->
+<section id="aqsam">
+  <div class="container">
+    <h2 class="section-title">
+      حدیث کی اقسام
+      <span>Types of Hadith</span>
+    </h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-num">1</div>
+        <span class="arabic">قول</span>
+        <h3>قولی حدیث</h3>
+        <p>وہ حدیث جس میں نبی ﷺ نے اپنی زبان مبارک سے کوئی بات فرمائی ہو۔</p>
+        <div class="example"><strong>مثال:</strong> "اعمال کا دارومدار نیتوں پر ہے۔"</div>
+      </div>
+
+      <div class="card">
+        <div class="card-num">2</div>
+        <span class="arabic">فعل</span>
+        <h3>فعلی حدیث</h3>
+        <p>وہ حدیث جس میں نبی ﷺ نے خود کوئی عمل کیا ہو، جیسے نماز کا طریقہ۔</p>
+        <div class="example"><strong>مثال:</strong> آپ ﷺ نے نماز پڑھ کر دکھائی۔</div>
+      </div>
+
+      <div class="card">
+        <div class="card-num">3</div>
+        <span class="arabic">تقریر</span>
+        <h3>تقریبی حدیث</h3>
+        <p>نبی ﷺ کے سامنے کوئی کام ہوا اور آپ نے منع نہیں فرمایا — یہ جواز کی دلیل ہے۔</p>
+        <div class="example"><strong>مثال:</strong> صحابہ کے اجتہاد پر خاموشی۔</div>
+      </div>
+
+      <div class="card">
+        <div class="card-num">4</div>
+        <span class="arabic">صفت</span>
+        <h3>صفاتی حدیث</h3>
+        <p>نبی ﷺ کی ذاتی خوبیاں، شکل و صورت، لباس اور کھانے پینے کا طریقہ۔</p>
+        <div class="example"><strong>مثال:</strong> آپ ﷺ کا حلیہ مبارک۔</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RIWAYAT ===================== -->
+<section id="riwayat" style="background: var(--white);">
+  <div class="container">
+    <h2 class="section-title">
+      روایت کے لحاظ سے اقسام
+      <span>By Attribution</span>
+    </h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-num">1</div>
+        <span class="arabic">مرفوع</span>
+        <h3>حدیثِ مرفوع</h3>
+        <p>وہ حدیث جو نبی ﷺ کی طرف منسوب ہو — یعنی قول، فعل یا تقریر آپ ﷺ سے نقل کی گئی ہو۔</p>
+      </div>
+      <div class="card">
+        <div class="card-num">2</div>
+        <span class="arabic">موقوف</span>
+        <h3>حدیثِ موقوف</h3>
+        <p>وہ قول یا فعل جو صحابہ کرام کی طرف منسوب ہو، نبی ﷺ کی طرف نہ ہو۔</p>
+      </div>
+      <div class="card">
+        <div class="card-num">3</div>
+        <span class="arabic">مقطوع</span>
+        <h3>حدیثِ مقطوع</h3>
+        <p>وہ قول جو تابعین کی طرف منسوب ہو۔</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SANAD ===================== -->
+<section id="sanad">
+  <div class="container">
+    <h2 class="section-title">
+      سند کے لحاظ سے اقسام
+      <span>By Chain of Narration</span>
+    </h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-num">1</div>
+        <span class="arabic">متواتر</span>
+        <h3>حدیثِ متواتر</h3>
+        <p>جو بہت سے راویوں سے اتنی کثرت سے آئی ہو کہ جھوٹ پر سب کا اتفاق ناممکن ہو۔ یہ یقینی علم دیتی ہے۔</p>
+        <div class="example"><strong>نوٹ:</strong> اس کا انکار کرنا ممکن نہیں۔</div>
+      </div>
+      <div class="card">
+        <div class="card-num">2</div>
+        <span class="arabic">آحاد</span>
+        <h3>حدیثِ آحاد</h3>
+        <p>جس کی روایت کرنے والے متواتر کے درجے تک نہ پہنچیں۔</p>
+      </div>
+      <div class="card">
+        <div class="card-num">3</div>
+        <span class="arabic">مشہور</span>
+        <h3>حدیثِ مشہور</h3>
+        <p>جسے تین یا زیادہ راویوں نے روایت کیا ہو۔</p>
+      </div>
+      <div class="card">
+        <div class="card-num">4</div>
+        <span class="arabic">عزیز</span>
+        <h3>حدیثِ عزیز</h3>
+        <p>جسے کم از کم دو راویوں نے روایت کیا ہو۔</p>
+      </div>
+      <div class="card">
+        <div class="card-num">5</div>
+        <span class="arabic">غریب</span>
+        <h3>حدیثِ غریب</h3>
+        <p>جو صرف ایک راوی سے مروی ہو۔</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DARJA BANDI ===================== -->
+<section id="darja" style="background: var(--white);">
+  <div class="container">
+    <h2 class="section-title">
+      حدیث کی درجہ بندی
+      <span>Authentication Grades</span>
+    </h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-num">✓</div>
+        <span class="arabic">صحیح</span>
+        <h3>حدیثِ صحیح</h3>
+        <p>جس کی سند مکمل، راوی قابلِ اعتماد اور کوئی خفیف نقص نہ ہو — سب سے اعلیٰ درجہ۔</p>
+      </div>
+      <div class="card">
+        <div class="card-num">◐</div>
+        <span class="arabic">حسن</span>
+        <h3>حدیثِ حسن</h3>
+        <p>جس کے راوی قابلِ اعتماد ہوں مگر صحیح سے کم درجے کے ہوں۔</p>
+      </div>
+      <div class="card">
+        <div class="card-num">!</div>
+        <span class="arabic">ضعیف</span>
+        <h3>حدیثِ ضعیف</h3>
+        <p>جس کی سند میں کوئی کمزوری ہو۔ اس پر عمل احتیاط سے کیا جاتا ہے۔</p>
+      </div>
+      <div class="card">
+        <div class="card-num">✕</div>
+        <span class="arabic">موضوع</span>
+        <h3>حدیثِ موضوع</h3>
+        <p>من گھڑت حدیث — جو نبی ﷺ کی طرف جھوٹاً منسوب کی گئی ہو۔</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KUTUB ===================== -->
+<section id="kutub" class="dark-section">
+  <div class="container">
+    <h2 class="section-title">
+      مشہور کتبِ حدیث
+      <span>Famous Hadith Collections</span>
+    </h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <span class="book-arabic">صحیح بخاری</span>
+        <h4>امام بخاری</h4>
+        <p>سب سے صحیح کتاب بعد از قرآن</p>
+      </div>
+      <div class="book-card">
+        <span class="book-arabic">صحیح مسلم</span>
+        <h4>امام مسلم</h4>
+        <p>دوسری سب سے معتبر کتاب</p>
+      </div>
+      <div class="book-card">
+        <span class="book-arabic">سنن ابو داؤد</span>
+        <h4>امام ابو داؤد</h4>
+        <p>احکام کی احادیث</p>
+      </div>
+      <div class="book-card">
+        <span class="book-arabic">جامع ترمذی</span>
+        <h4>امام ترمذی</h4>
+        <p>احادیث کی درجہ بندی کے ساتھ</p>
+      </div>
+      <div class="book-card">
+        <span class="book-arabic">سنن نسائی</span>
+        <h4>امام نسائی</h4>
+        <p>احکام و فقہی احادیث</p>
+      </div>
+      <div class="book-card">
+        <span class="book-arabic">سنن ابن ماجہ</span>
+        <h4>امام ابن ماجہ</h4>
+        <p>صحاح ستہ کی آخری کتاب</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUIZ ===================== -->
+<section id="quiz">
+  <div class="container">
+    <h2 class="section-title">
+      اپنی معلومات آزمائیں
+      <span>Quick Quiz</span>
+    </h2>
+    <div class="quiz-box">
+      
+      <!-- Score Board -->
+      <div style="display: flex; justify-content: space-between; color: var(--gold-light); font-family: 'Inter', sans-serif; font-size: 0.95rem; margin-bottom: 16px; border-bottom: 1px solid rgba(201,162,75,0.2); padding-bottom: 10px;">
+        <span>سوال: <span id="qProgress">1/5</span></span>
+        <span>سکور: <span id="scoreDisplay">0</span></span>
+      </div>
+
+      <!-- Question Area -->
+      <div class="quiz-q" id="quizQuestion">لوڈ ہو رہا ہے...</div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+      <button class="btn btn-gold quiz-next" id="quizNext">اگلا سوال</button>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="foot-logo">ریاض الحدیث</div>
+  <div class="foot-div"></div>
+  <p>حدیث کی اقسام آسان اردو میں — علم کی روشنی</p>
+  <p class="footer-credit">
+    <span class="label">تیار کردہ:</span> Muhammad Tariq Mahboob
+  </p>
+  <p class="footer-copy">© 2026 Riyazul Hadees. تمام حقوق محفوظ ہیں۔</p>
+</footer>
+
+<!-- ===================== JAVASCRIPT ===================== -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const quizData = [
+    { q: "وہ حدیث جس میں نبی ﷺ نے اپنی زبان سے کوئی بات فرمائی ہو، کیا کہلاتی ہے؟",
+      options: ["فعلی حدیث", "قولی حدیث", "صفاتی حدیث", "تقریبی حدیث"], answer: 1 },
+    { q: "حدیثِ متواتر کی کیا خصوصیت ہے؟",
+      options: ["صرف ایک راوی ہو", "دو راوی ہوں", "بہت سے راویوں سے یقینی علم ملے", "سند میں کمزوری ہو"], answer: 2 },
+    { q: "من گھڑت حدیث کو کیا کہا جاتا ہے؟",
+      options: ["صحیح", "حسن", "ضعیف", "موضوع"], answer: 3 },
+    { q: "صحابہ کرام کی طرف منسوب قول کو کیا کہتے ہیں؟",
+      options: ["مرفوع", "موقوف", "مقطوع", "متواتر"], answer: 1 },
+    { q: "کون سی کتاب صحاح ستہ کی پہلی کتاب ہے؟",
+      options: ["صحیح مسلم", "سنن ابن ماجہ", "صحیح بخاری", "جامع ترمذی"], answer: 2 }
+  ];
+
+  let currentQ = 0;
+  let score = 0;
+  let answered = false;
+
+  const qEl = document.getElementById('quizQuestion');
+  const optsEl = document.getElementById('quizOptions');
+  const fbEl = document.getElementById('quizFeedback');
+  const nextEl = document.getElementById('quizNext');
+  const scoreEl = document.getElementById('scoreDisplay');
+  const progressEl = document.getElementById('qProgress');
+
+  function loadQuestion() {
+    answered = false;
+    fbEl.textContent = '';
+    nextEl.style.display = 'none';
+    
+    progressEl.textContent = (currentQ + 1) + "/" + quizData.length;
+    
+    const item = quizData[currentQ];
+    qEl.textContent = (currentQ + 1) + ". " + item.q;
+    optsEl.innerHTML = '';
+    
+    item.options.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-opt';
+      btn.textContent = opt;
+      btn.addEventListener('click', () => selectAnswer(i, btn));
+      optsEl.appendChild(btn);
+    });
+  }
+
+  function selectAnswer(index, btn) {
+    if (answered) return;
+    answered = true;
+    
+    const item = quizData[currentQ];
+    const allOpts = optsEl.querySelectorAll('.quiz-opt');
+    
+    allOpts.forEach((b, i) => {
+      if (i === item.answer) b.classList.add('correct');
+    });
+    
+    if (index === item.answer) {
+      fbEl.textContent = '✓ درست جواب!';
+      fbEl.style.color = '#A3E4B7';
+      score++;
+      scoreEl.textContent = score;
+    } else {
+      btn.classList.add('wrong');
+      fbEl.textContent = '✕ غلط جواب — درست جواب نمایاں ہے';
+      fbEl.style.color = '#F5A3A3';
+    }
+    
+    nextEl.style.display = 'inline-block';
+    nextEl.textContent = (currentQ === quizData.length - 1) ? 'نتیجہ دیکھیں' : 'اگلا سوال';
+  }
+
+  function showResult() {
+    qEl.textContent = "آپ کا نتیجہ (Result)";
+    optsEl.innerHTML = `
+      <div style="text-align: center; padding: 20px;">
+        <div style="font-size: 3rem; color: var(--gold-light); font-family: 'Cormorant Garamond', serif; margin-bottom: 10px;">${score} / ${quizData.length}</div>
+        <p style="color: #E8E0D0; font-size: 1.1rem;">آپ نے کل ${quizData.length} میں سے ${score} درست جوابات دیے۔</p>
+        <p style="color: var(--gold); margin-top: 10px;">${score === quizData.length ? "بہت خوب! آپ کو مکمل معلومات ہیں۔" : "مزید محنت کریں اور دوبارہ کوشش کریں!"}</p>
+      </div>
+    `;
+    fbEl.textContent = '';
+    nextEl.textContent = 'دوبارہ شروع کریں';
+    nextEl.style.display = 'inline-block';
+    currentQ++;
+  }
+
+  nextEl.addEventListener('click', () => {
+    if (currentQ >= quizData.length) {
+      currentQ = 0;
+      score = 0;
+      scoreEl.textContent = score;
+      loadQuestion();
+    } else {
+      currentQ++;
+      if (currentQ >= quizData.length) {
+        showResult();
+      } else {
+        loadQuestion();
+      }
+    }
+  });
+
+  loadQuestion();
+});
+</script>
+
+</body>
+</html>
